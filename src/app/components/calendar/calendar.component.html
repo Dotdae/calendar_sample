@@ -1,0 +1,24 @@
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+  <div class="flex justify-between items-center mb-4">
+    <button (click)="prevMonth()" class="text-lg text-[#3E92CC] hover:underline transition duration-200">&larr;</button>
+    <h2 class="text-xl font-semibold text-gray-800">{{ mesActual.format('MMMM YYYY') }}</h2>
+    <button (click)="nextMonth()" class="text-lg text-[#3E92CC] hover:underline transition duration-200">&rarr;</button>
+  </div>
+  <!-- Encabezado de los días de la semana -->
+  <div class="grid grid-cols-7 gap-2 text-center">
+    @for (dia of diasSemana; track $index) {
+      <div class="text-sm font-bold text-[#3E92CC] bg-[#16324F] rounded-lg p-2">{{ dia }}</div>
+    }
+    <!-- Días del mes -->
+    @for (dia of diasMes; track $index) {
+      <div class="h-12 flex items-center justify-center">
+        @if (dia) {
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-full transition duration-200 cursor-pointer">
+            {{ dia }}
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
